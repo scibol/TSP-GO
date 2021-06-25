@@ -5,11 +5,11 @@ import (
 )
 
 type problem struct {
-	name       string
-	comment    string
-	dimension  int
-	best_known int
-	points     []point
+	name      string
+	comment   string
+	dimension int
+	bestKnown int
+	points    []point
 }
 
 func (pr problem) getDistanceMatrix() [][]float64 {

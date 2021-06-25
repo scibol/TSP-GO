@@ -12,3 +12,15 @@ func main() {
 
 	problem := readTspFile(*tspPointer, *seedPointer)
 	dm := problem.getDistanceMatrix()
+
+	solution := solution{seed: *seedPointer}
+	solution.generateRandomSolution(*problem)
+	solution.computeCost(dm)
+	fmt.Println(solution.cost)
+	solution.twoOpt(dm)
+	solution.computeCost(dm)
+	fmt.Println(solution.cost)
+	final := solution.simulatedAnnealing(dm)
+	final.computeCost(dm)
+	fmt.Println(final.cost)
+}

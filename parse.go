@@ -9,8 +9,9 @@ import (
 )
 
 type point struct {
-	x float64
-	y float64
+	id int
+	x  float64
+	y  float64
 }
 
 func readTspFile(tsp string, seed int64) *problem {
@@ -33,12 +34,12 @@ func readTspFile(tsp string, seed int64) *problem {
 		case "DIMENSION:":
 			pr.dimension, _ = strconv.Atoi(line[1])
 		case "BEST_KNOWN":
-			pr.best_known, _ = strconv.Atoi(line[2])
+			pr.bestKnown, _ = strconv.Atoi(line[2])
 		default:
-			if _, err := strconv.Atoi(line[0]); err == nil {
+			if id, err := strconv.Atoi(line[0]); err == nil {
 				x_coord, _ := strconv.ParseFloat(line[1], 64)
 				y_coord, _ := strconv.ParseFloat(line[2], 64)
-				p := point{x: x_coord, y: (y_coord)}
+				p := point{id: id, x: x_coord, y: (y_coord)}
 				pr.points = append(pr.points, p)
 			}
 		}
