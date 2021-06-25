@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 )
 
 func main() {
@@ -10,5 +11,4 @@ func main() {
 	flag.Parse()
 
 	problem := readTspFile(*tspPointer, *seedPointer)
-	problem.getDistanceMatrix()
-}
+	dm := problem.getDistanceMatrix()
