@@ -13,14 +13,6 @@ type point struct {
 	y float64
 }
 
-type problem struct {
-	name       string
-	comment    string
-	dimension  int
-	best_known int
-	points     []point
-}
-
 func readTspFile(tsp string, seed int64) *problem {
 	file, err := os.Open("tsp/" + tsp)
 	if err != nil {
@@ -29,7 +21,6 @@ func readTspFile(tsp string, seed int64) *problem {
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-	// r, _ := regexp.Compile("NAME:") // this can also be a regex
 
 	pr := problem{}
 	for scanner.Scan() {
