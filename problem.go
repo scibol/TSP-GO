@@ -25,7 +25,7 @@ func (pr problem) getDistanceMatrix() [][]float64 {
 
 func (p1 point) distanceFrom(p2 point) float64 {
 	diff_x := p1.x - p2.x
-	diff_y := p2.y - p2.y
+	diff_y := p1.y - p2.y
 	ss := math.Pow(diff_x, 2) + math.Pow(diff_y, 2)
 	return math.Sqrt(ss)
 }

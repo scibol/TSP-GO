@@ -12,7 +12,6 @@ func main() {
 
 	problem := readTspFile(*tspPointer, *seedPointer)
 	dm := problem.getDistanceMatrix()
-
 	solution := solution{seed: *seedPointer}
 	solution.generateRandomSolution(*problem)
 	solution.computeCost(dm)
@@ -21,6 +20,5 @@ func main() {
 	solution.computeCost(dm)
 	fmt.Println(solution.cost)
 	final := solution.simulatedAnnealing(dm)
-	final.computeCost(dm)
 	fmt.Println(final.cost)
 }
